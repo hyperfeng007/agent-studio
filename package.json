@@ -1,0 +1,73 @@
+{
+  "name": "agent-studio",
+  "version": "1.3.4",
+  "private": true,
+  "description": "Agent Studio - Node.js re-implementation of Cherry Studio's key modules: Chat, Mini Apps, Code CLI (编码搭档) and Settings > Model Service. Written from scratch, behaviour/UI aligned with Cherry Studio V2 features on a V1-style layout.",
+  "type": "module",
+  "scripts": {
+    "dev": "node server/index.js",
+    "build": "vite build --config web/vite.config.js",
+    "start": "npm run build && node server/index.js",
+    "server": "node server/index.js",
+    "test:smoke": "vite build --config web/vite.smoke.config.js && node scripts/smoke.mjs",
+    "dev:all": "node server/index.js",
+    "verify:cli": "node scripts/verify-clis.mjs",
+    "verify:cli:install": "node scripts/verify-clis.mjs --install",
+    "test:win": "node scripts/test-win-quoting.mjs",
+    "test:detect": "node scripts/test-detection.mjs",
+    "test:wire": "node scripts/test-wire-body.mjs",
+    "test": "node scripts/test-wire-body.mjs && node scripts/test-win-quoting.mjs && node scripts/test-detection.mjs && node scripts/test-providers.mjs && node scripts/test-kill.mjs && node scripts/test-net.mjs && node scripts/test-tools.mjs && node scripts/test-assistants.mjs && node scripts/test-resources.mjs && node scripts/test-desktop.mjs && node scripts/test-cli-process.mjs && node scripts/test-all-tool-installs.mjs && node scripts/test-pi-source.mjs && node scripts/test-portable.mjs",
+    "test:providers": "node scripts/test-providers.mjs",
+    "test:kill": "node scripts/test-kill.mjs",
+    "test:net": "node scripts/test-net.mjs",
+    "test:tools": "node scripts/test-tools.mjs",
+    "test:assistants": "node scripts/test-assistants.mjs",
+    "test:assistant-ui": "vite build --config web/vite.smoke.config.js && node scripts/test-assistant-ui.mjs",
+    "test:resources": "node scripts/test-resources.mjs",
+    "test:resource-api": "node scripts/test-resource-api.mjs",
+    "test:resource-ui": "vite build --config web/vite.smoke.config.js && node scripts/test-resource-ui.mjs",
+    "test:install-proxy": "node scripts/test-install-proxy.cjs",
+    "test:desktop": "node scripts/test-desktop.mjs",
+    "test:cli-process": "node scripts/test-cli-process.mjs",
+    "test:all-tool-installs": "node scripts/test-all-tool-installs.mjs",
+    "test:pi-source": "node scripts/test-pi-source.mjs",
+    "test:portable": "node scripts/test-portable.mjs",
+    "package:portable": "node scripts/package-portable.mjs"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.5.2",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@reduxjs/toolkit": "^2.5.0",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
+    "antd": "^5.22.5",
+    "cross-spawn": "7.0.6",
+    "dayjs": "^1.11.13",
+    "express": "^4.21.2",
+    "highlight.js": "^11.11.1",
+    "js-yaml": "^5.4.2",
+    "mammoth": "^1.12.3",
+    "nanoid": "^5.0.9",
+    "pdfjs-dist": "^4.8.69",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.3",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^6.28.1",
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.0",
+    "undici": "^7.29.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^29.1.1",
+    "vite": "^5.4.11"
+  },
+  "optionalDependencies": {
+    "node-pty": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}
